@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Maintainer>
+  <Icon>https://raw.githubusercontent.com/MattyStacks/docker-templates/master/MattyStacks/images/foundry.png</Icon>
+  <Profile>MattyStacks' Docker Templates for Unraid</Profile>
+</Maintainer>
