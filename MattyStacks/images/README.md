@@ -5,7 +5,6 @@ This directory contains icon images for the MattyStacks Docker templates.
 ## Files
 
 - **foundry.png** - Icon for the Foundry game server template (256x256 PNG)
-- **foundry.svg** - SVG version of the Foundry icon
 
 ## Note
 
