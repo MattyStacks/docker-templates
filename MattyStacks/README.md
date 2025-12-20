@@ -53,14 +53,25 @@ A dedicated server template for Foundry, a multiplayer factory-building and auto
 | Variable | Description | Default |
 |----------|-------------|---------|
 | GAME_ID | Steam App ID for Foundry Dedicated Server | 2915550 |
-| SRV_NAME | Name of your server | Foundry Docker Server |
-| WORLD_NAME | Name of the world/save | MyWorld |
-| SRV_PWD | Server password (optional) | _(empty)_ |
-| PUBLIC | List server publicly (1=yes, 0=no) | 1 |
-| MAX_PLAYERS | Maximum number of players | 4 |
+| SERVER_NAME | Name of your server | Foundry Docker Server |
+| SERVER_WORLD_NAME | Name of the world/save | MyWorld |
+| MAP_SEED | Map seed for world generation | _(random)_ |
+| SERVER_PASSWORD | Server password (optional) | _(empty)_ |
+| SERVER_IS_PUBLIC | List server publicly (true/false) | true |
+| SERVER_MAX_PLAYERS | Maximum number of players | 4 |
 | GAME_PORT | Main game port | 3724 |
 | QUERY_PORT | Query port for server browser | 27015 |
 | PAUSE_WHEN_EMPTY | Pause server when no players connected | true |
+| AUTOSAVE_INTERVAL | Autosave interval in seconds | 300 |
+
+#### Port Forwarding:
+Make sure to forward the following ports on your router:
+- **UDP 3724** - Game traffic
+- **UDP 27015** - Server query/browser
+
+#### Storage Locations:
+- `/mnt/user/appdata/steamcmd` - SteamCMD installation (shared between servers)
+- `/mnt/user/appdata/foundry` - Server files and world saves
 
 ---
 
@@ -77,16 +88,8 @@ To use these templates in your Unraid server:
 ## Coming Soon
 
 More templates are in development! Stay tuned for additional game servers and applications.
-| AUTOSAVE_INTERVAL | Autosave interval in seconds | 300 |
 
-#### Port Forwarding:
-Make sure to forward the following ports on your router:
-- **UDP 3724** - Game traffic
-- **UDP 27015** - Server query/browser
-
-#### Storage Locations:
-- `/mnt/user/appdata/steamcmd` - SteamCMD installation (shared between servers)
-- `/mnt/user/appdata/foundry` - Server files and world saves
+---
 
 ## Credits
 
@@ -94,7 +97,8 @@ These templates are based on the excellent work by [ich777](https://github.com/i
 
 ## Support
 
-For issues with the template or container setup, please refer to:
-- [ich777's Unraid Forums Support Thread](https://forums.unraid.net/topic/79530-support-ich777-gameserver-dockers/)
-- [Foundry Official Documentation](https://www.foundry-game.com/)
-- [Foundry Dedicated Server Guide](https://dedicated.foundry-game.com/)
+For issues specific to this template, please create an issue on the [GitHub repository](https://github.com/MattyStacks/docker-templates).
+
+Additional resources:
+- [Foundry Official Website](https://www.foundry-game.com/)
+- [Foundry Community Discord](https://discord.gg/foundry)

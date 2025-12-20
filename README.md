@@ -25,11 +25,19 @@ For detailed configuration options and setup instructions, see the [MattyStacks 
 
 ## How to Use
 
-1. In your Unraid server, navigate to the Docker tab
-2. Click "Add Container" at the bottom of the page
-3. Under "Template repositories", add the raw GitHub URL for the template you want
-4. Select the template from the dropdown and configure as needed
-5. Click "Apply" to deploy
+### Installing from Community Applications (CA)
+Once this repository is added to Community Applications, you can install templates directly from the Apps tab in Unraid.
+
+### Manual Installation
+1. In your Unraid server, navigate to **Settings** → **Docker**
+2. Under "Template repositories", add this URL:
+   ```
+   https://github.com/MattyStacks/docker-templates
+   ```
+3. Go to the **Docker** tab and click **"Add Container"**
+4. Select the template from the dropdown menu
+5. Configure the paths and settings as needed
+6. Click **"Apply"** to deploy
 
 ## Contributing
 This is a personal collection, but feedback and suggestions are welcome!
