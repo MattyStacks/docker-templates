@@ -1,13 +1,19 @@
 # MattyStacks Docker Templates
 
-This directory contains Unraid Docker templates for various game servers and applications.
+This directory contains Unraid Docker templates for various game servers and applications. Currently focused on game servers with plans to expand to additional services.
+
+## Current Status
+
+I'm building a collection of Docker templates for Unraid, starting with game servers that I personally use. The first template is for Foundry, and many more will follow!
 
 ## Available Templates
 
 ### Foundry
-A dedicated server template for the Foundry game (factory-building multiplayer game).
+A dedicated server template for Foundry, a multiplayer factory-building and automation game where you explore, mine resources, and build automated production chains.
 
-**Steam App ID:** 2915550
+**Steam App ID:** 2915550  
+**Container Image:** `ghcr.io/mattystacks/steamcmd:foundry`  
+**Template File:** `Foundry.xml`
 
 #### Features:
 - Based on ich777's steamcmd container structure
@@ -30,10 +36,17 @@ A dedicated server template for the Foundry game (factory-building multiplayer g
 4. Start the container (first startup will download game files)
 5. Connect to your server using the game client
 
-#### Notes:
-- First startup may take a long time as it downloads the dedicated server files from Steam
-- The server will automatically update when restarted if a new version is available
-- You can run multiple servers by pointing them to different `serverfiles` directories while sharing the same `steamcmd` directory
+#### Implementation Details:
+- **Base Image:** Built on the steamcmd container architecture
+- **Auto-Updates:** Server files automatically update on container restart
+- **Multi-Instance Support:** Run multiple servers by using different `serverfiles` directories while sharing a single `steamcmd` directory
+- **Resource Efficiency:** SteamCMD files are shared across instances to save disk space
+
+#### Important Notes:
+- First startup may take 10-15 minutes as it downloads the dedicated server files from Steam (~1-2 GB)
+- The server will automatically check for and install updates when restarted
+- Container uses `--restart=unless-stopped` policy for automatic recovery
+- Based on ich777's proven steamcmd container structure for reliability
 
 #### Server Configuration Variables:
 
@@ -48,6 +61,22 @@ A dedicated server template for the Foundry game (factory-building multiplayer g
 | GAME_PORT | Main game port | 3724 |
 | QUERY_PORT | Query port for server browser | 27015 |
 | PAUSE_WHEN_EMPTY | Pause server when no players connected | true |
+
+---
+
+## Installation
+
+To use these templates in your Unraid server:
+
+1. Navigate to **Docker** tab in Unraid
+2. Scroll to the bottom and click **"Add Container"**
+3. In the template dropdown, select your desired template
+4. Configure the paths and settings as needed
+5. Click **"Apply"** to create and start the container
+
+## Coming Soon
+
+More templates are in development! Stay tuned for additional game servers and applications.
 | AUTOSAVE_INTERVAL | Autosave interval in seconds | 300 |
 
 #### Port Forwarding:
